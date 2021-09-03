@@ -1,32 +1,47 @@
-<nav class="settings-sidebar">
-    <div class="sidebar-body">
-        <a href="#" class="settings-sidebar-toggler">
-            <i data-feather="settings"></i>
-        </a>
-        <h6 class="text-muted">Sidebar:</h6>
-        <div class="form-group border-bottom">
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarLight" value="sidebar-light" checked>
-                    Light
-                </label>
-            </div>
-            <div class="form-check form-check-inline">
-                <label class="form-check-label">
-                    <input type="radio" class="form-check-input" name="sidebarThemeSettings" id="sidebarDark" value="sidebar-dark">
-                    Dark
-                </label>
-            </div>
-        </div>
-        <div class="theme-wrapper">
-            <h6 class="text-muted mb-2">Light Theme:</h6>
-            <a class="theme-item active" href="../demo_1/dashboard-one.html">
-                <img src="{{ asset('')}}assets/images/screenshots/light.jpg" alt="light theme">
-            </a>
-            <h6 class="text-muted mb-2">Dark Theme:</h6>
-            <a class="theme-item" href="../demo_2/dashboard-one.html">
-                <img src="{{ asset('')}}assets/images/screenshots/dark.jpg" alt="light theme">
-            </a>
-        </div>
+<nav class="navbar">
+    <a href="#" class="sidebar-toggler">
+        <i data-feather="menu"></i>
+    </a>
+    <div class="navbar-content">
+        <ul class="navbar-nav">
+            <li class="nav-item dropdown nav-profile">
+                <h5>{{ Auth::user()->name }}</h5><br>&nbsp;&nbsp;
+                <a class="nav-link dropdown-toggle" href="#" id="profileDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img src="https://via.placeholder.com/30x30" alt="user">
+                </a>
+                <div class="dropdown-menu" aria-labelledby="profileDropdown">
+                    <div class="dropdown-header d-flex flex-column align-items-center">
+                        <div class="figure mb-3">
+                            <img src="https://via.placeholder.com/80x80" alt="">
+                        </div>
+                        <div class="info text-center">
+                            <p class="name font-weight-bold mb-0">{{ Auth::user()->name }}</p>
+                            <p class="email text-muted mb-3">{{ Auth::user()->name }}</p>
+                        </div>
+                    </div>
+                    <div class="dropdown-body">
+                        <ul class="profile-nav p-0 pt-3">
+                            <li class="nav-item">
+                                <a href="{{ route('authenticate.index') }}" class="nav-link">
+                                    <i data-feather="edit"></i>
+                                    <span>Change Password</span>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('logout') }}"
+                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                    <i data-feather="log-out"></i>
+                                    <span>Log Out</span>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </li>
+        </ul>
     </div>
 </nav>

@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AuthenticateController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\SampleController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,14 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::middleware('auth')->group(function (){
+    //Route::get('/', function () { return view('welcome'); });
+    Route::get('/', [HomeController::class, 'index'])->name('home');
+
+    Route::prefix('authenticate')->group(function () {
+        Route::get('/index', [AuthenticateController::class, 'index'])->name('authenticate.index');
+        Route::post('/pass_change', [AuthenticateController::class, 'pass_change'])->name('authenticate.pass_change');
+    });
+    Route::resource('samples',SampleController::class);
 });
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
