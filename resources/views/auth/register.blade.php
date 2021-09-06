@@ -21,7 +21,7 @@
                     <div class="card">
                         <div class="row">
                             <div class="col-md-4 pr-md-0">
-                                <div class="auth-left-wrapper" style="background-image: url('{{asset('assets/images/z-black.png')}}'); height: 70%; ">
+                                <div class="auth-left-wrapper" style="background-image: url('{{asset('assets/images/z-black.png')}}');  max-width: 100%;max-height: 75vh;margin: auto; ">
 
                                 </div>
                             </div>

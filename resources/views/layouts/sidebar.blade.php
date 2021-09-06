@@ -19,7 +19,7 @@
                 </a>
             </li>
             <li class="nav-item nav-category">Basic</li>
-            <li class="nav-item {{ (request()->is('samples')) ? 'active' : '' }}">
+            <li class="nav-item {{ ((request()->is('samples'))||(request()->is('samples/*'))) ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('samples.index') }}">
                     <i class="link-icon" data-feather="mail"></i>
                     <span class="link-title">Sample</span>
