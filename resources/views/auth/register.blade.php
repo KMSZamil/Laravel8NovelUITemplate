@@ -29,7 +29,8 @@
                                 <div class="auth-form-wrapper px-4 py-5">
                                     <a href="#" class="noble-ui-logo d-block mb-2">Laravel<span>8</span></a>
                                     <h5 class="text-muted font-weight-normal mb-4">Create account</h5>
-                                    <form class="forms-sample">
+                                    <form method="POST" action="{{ route('register') }}">
+                                        @csrf
                                         <div class="form-group">
                                             <label for="exampleInputUsername1">Username</label>
                                             <input type="text" placeholder="Username" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus">
