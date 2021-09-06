@@ -12,6 +12,17 @@
     <link rel="stylesheet" href="{{ asset('assets/vendors/flag-icon-css/css/flag-icon.min.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/feather-font/css/iconfont.css')}}">
     <link rel="stylesheet" href="{{ asset('assets/css/demo_1/style.css')}}">
+{{--    <style>--}}
+{{--        .sidebar-dark .sidebar .sidebar-header {--}}
+{{--            background: red !important;--}}
+{{--            border-bottom: 1px solid !important;--}}
+{{--            border-right: 1px solid !important;--}}
+{{--        }--}}
+{{--        .sidebar-dark .sidebar .sidebar-body {--}}
+{{--            background: red !important;--}}
+{{--            border-right: red !important;--}}
+{{--        }--}}
+{{--    </style>--}}
     <link href="{{asset('assets/vendors/sweetalert2/sweetalert2.css')}}" rel="stylesheet" type="text/css" />
     <style>
         .table th, .table td {
